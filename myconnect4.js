@@ -42,7 +42,14 @@ class Game {
     }
   }
 
-  findSpotForCol(x) {}
+  findSpotForCol(x) {
+    for (let y = this.height - 1; y >= 0; y--) {
+      if (!this.board[y][x]) {
+        return y;
+      }
+    }
+    return null;
+  }
 
   placeInTable(y, x) {}
 
