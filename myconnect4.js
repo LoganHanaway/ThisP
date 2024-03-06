@@ -67,7 +67,23 @@ class Game {
     top.removeEventListener("click", this.handleGameClick);
   }
 
-  handleClick(evt) {}
+  handleClick(evt) {
+    const x = +evt.target.id;
+    const y = this.findSpotForCol(x);
+
+    if (y === null) {
+      return;
+    }
+
+    this.board[y][x] = this.currPlayer;
+    this.placeInTable(y, x);
+
+    if (this.checkForWin()) {
+      return this.endGame(`Player ${this.currPlayer.color} won!`);
+    }
+
+    this.currPlayer = this.currPlayer === this.players[0] ? this.players[1] : this.players[0];
+  }
 
   checkForWin() {}
 }
