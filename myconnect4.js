@@ -61,7 +61,11 @@ class Game {
     spot.append(piece);
   }
 
-  endGame(msg) {}
+  endGame(msg) {
+    alert(msg);
+    const top = document.querySelector("#column-top");
+    top.removeEventListener("click", this.handleGameClick);
+  }
 
   handleClick(evt) {}
 
