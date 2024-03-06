@@ -16,7 +16,31 @@ class Game {
     }
   }
 
-  makeHtmlBoard() {}
+  makeHtmlBoard() {
+    const top = document.createElement('tr');
+    top.setAttribute('id', 'column-top');
+    top.addEventListener('click', this.handleClick);
+
+    for(let x = 0; x < this.width; x++){
+      const headCell = document.createElement('td');
+      headCell.setAttribute('id', x);
+      top.append(headCell);
+    }
+
+    this.board.append(top);
+
+    for (let y = 0; y < HEIGHT; y++) {
+      const row = document.createElement('tr');
+  
+      for (let x = 0; x < WIDTH; x++) {
+        const cell = document.createElement('td');
+        cell.setAttribute('id', `${y}-${x}`);
+        row.append(cell);
+      }
+  
+      this.board.append(row);
+    }
+  }
 
   findSpotForCol(x) {}
 
