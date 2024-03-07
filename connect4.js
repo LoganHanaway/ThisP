@@ -144,6 +144,7 @@ function checkForWin() {
         return true;
       }
     }
+    
   }
 }
 
